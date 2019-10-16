@@ -26,12 +26,15 @@ class Example01 {
     public Observable<String> withFromCallable() {
         // TODO
         // Create an observable using Observable.fromCallable() using MessageProvider class
+        // Use MessageProvider.getAMessage()
         MessageProvider.getAMessage();
         throw new NotImplementedException();
     }
 
     public Observable<String> fromCallbacks() {
-        InMemoryStringsRepository repository = new InMemoryStringsRepository();
+        // TODO
+        // Create an observable using Observable.create() based on a callback call
+        // Use StringsRepository.getAString()
         throw new NotImplementedException();
     }
 
