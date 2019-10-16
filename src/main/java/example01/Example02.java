@@ -1,22 +1,22 @@
 package example01;
 
-import io.reactivex.Completable;
-import io.reactivex.Maybe;
-import io.reactivex.Single;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class Example02 {
 
-    public Single<String> singleElement() {
-        throw new NotImplementedException();
-    }
-
-    public Maybe<String> maybeElement() {
-        throw new NotImplementedException();
-    }
-
-    public Completable completableElement() {
-        throw new NotImplementedException();
-    }
-
+	public Disposable singleElement() {
+		return Observable.range(1, 10)
+                .subscribeOn(Schedulers.computation())
+                .map(integer -> integer * 10)
+				.flatMap(integer ->
+                        Observable.fromCallable(() -> {
+                            System.out.println("el numero es " + integer);
+                            return integer;
+                        })
+                )
+                .observeOn(Schedulers.single())
+				.subscribe();
+	}
 }
