@@ -1,5 +1,6 @@
 package example01;
 
+import io.reactivex.Completable;
 import io.reactivex.Maybe;
 import io.reactivex.Single;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -14,7 +15,7 @@ public class Example02 {
         throw new NotImplementedException();
     }
 
-    public Maybe<String> completableElement() {
+    public Completable completableElement() {
         throw new NotImplementedException();
     }
 
