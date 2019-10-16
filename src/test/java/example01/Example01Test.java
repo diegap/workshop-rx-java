@@ -12,7 +12,7 @@ public class Example01Test {
 
         example01.withJust().subscribe(testObserver);
 
-        testObserver.assertValues("one", "two", "three");
+        testObserver.assertValues("Aworded", "Trivia Crack", "Pictionary");
         testObserver.assertComplete();
     }
 
@@ -23,7 +23,7 @@ public class Example01Test {
 
         example01.withFromIterable().subscribe(testObserver);
 
-        testObserver.assertValues("one", "two", "three");
+        testObserver.assertValues("Java", "Kotlin", "C#");
         testObserver.assertComplete();
     }
 
@@ -34,7 +34,7 @@ public class Example01Test {
 
         example01.withFromCallable().subscribe(testObserver);
 
-        testObserver.assertValue("This is rx-java workshop");
+        testObserver.assertValue(MessageProvider.getAMessage());
         testObserver.assertComplete();
     }
 
