@@ -20,7 +20,9 @@ public class ConcatMerge {
 
 		example04.merge(count).toList().subscribe(testObserver);
 
-		testObserver.assertComplete().assertValues(Lists.newArrayList(1,2,3,4,5,10,11,12,13,14));
+		testObserver.assertComplete().assertValue( list ->
+				list.containsAll(Lists.newArrayList(1,2,3,4,5,10,11,12,13,14))
+		);
 	}
 
 	@Test
