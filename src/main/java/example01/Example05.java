@@ -1,11 +1,6 @@
 package example01;
 
-import com.google.common.collect.FluentIterable;
-
 import io.reactivex.Observable;
-import io.reactivex.Scheduler;
-import io.reactivex.schedulers.Schedulers;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Example05 {
 
@@ -13,14 +8,14 @@ public class Example05 {
 		// TODO
 		// Create a code that from the range from 1 to the count
 		// returns the merge from the slow request and the normal request
-		throw new NotImplementedException();
+		throw new UnsupportedOperationException();
 	}
 
 	public Observable<Integer> concat(int count) {
 		// TODO
 		// Create a code that from the range from 1 to the count
 		// returns the concat from the slow request and the normal request
-		throw new NotImplementedException();
+		throw new UnsupportedOperationException();
 	}
 
 	private Observable<Integer> slowRequest(int count) {

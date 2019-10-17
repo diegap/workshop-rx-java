@@ -5,7 +5,6 @@ import java.util.Map;
 import com.google.common.collect.Maps;
 
 import io.reactivex.Observable;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class Example04 {
 
@@ -14,7 +13,7 @@ public class Example04 {
 		// Create a code that from the range from 1 to the count
 		// returns the text for each number using the function
 		// translateNumber
-		throw new NotImplementedException();
+		throw new UnsupportedOperationException();
 	}
 
 	private Observable<String> translateNumber(int number) {

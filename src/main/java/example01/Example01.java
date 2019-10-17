@@ -1,7 +1,6 @@
 package example01;
 
 import io.reactivex.Observable;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +11,7 @@ class Example01 {
         // TODO
         // Create an observable using Observable.just() that returns the following strings:
         // "Aworded", "Trivia Crack", "Pictionary"
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     public Observable<String> withFromIterable() {
@@ -20,7 +19,7 @@ class Example01 {
         // Create an observable using Observable.fromIterable() that returns the following strings:
         // "Java", "Kotlin", "C#"
         List<String> items = Arrays.asList("Java", "Kotlin", "C#");
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     public Observable<String> withFromCallable() {
@@ -28,14 +27,14 @@ class Example01 {
         // Create an observable using Observable.fromCallable() using MessageProvider class
         // Use MessageProvider.getAMessage()
         MessageProvider.getAMessage();
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     public Observable<String> fromCallbacks() {
         // TODO
         // Create an observable using Observable.create() based on a callback call
         // Use StringsRepository.getAString()
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
 }
