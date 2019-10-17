@@ -4,14 +4,16 @@ import io.reactivex.Observable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 class Example01 {
 
     public Observable<String> withJust() {
+        return Observable.just("Aworded", "Trivia Crack", "Pictionary");
         // TODO
         // Create an observable using Observable.just() that returns the following strings:
         // "Aworded", "Trivia Crack", "Pictionary"
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
     }
 
     public Observable<String> withFromIterable() {
@@ -19,22 +21,33 @@ class Example01 {
         // Create an observable using Observable.fromIterable() that returns the following strings:
         // "Java", "Kotlin", "C#"
         List<String> items = Arrays.asList("Java", "Kotlin", "C#");
-        throw new UnsupportedOperationException();
+        return Observable.fromIterable(items);
+        //throw new UnsupportedOperationException();
     }
 
     public Observable<String> withFromCallable() {
         // TODO
         // Create an observable using Observable.fromCallable() using MessageProvider class
         // Use MessageProvider.getAMessage()
-        MessageProvider.getAMessage();
-        throw new UnsupportedOperationException();
+        return Observable.fromCallable(MessageProvider::getAMessage);
     }
 
     public Observable<String> fromCallbacks() {
         // TODO
         // Create an observable using Observable.create() based on a callback call
         // Use StringsRepository.getAString()
-        throw new UnsupportedOperationException();
+        return Observable.create(emitter -> StringsRepository.getAString(new StringsRepository.Callback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                emitter.onNext(result);
+                emitter.onComplete();
+            }
+
+            @Override
+            public void onError(Throwable error) {
+                emitter.onError(error);
+            }
+        }));
     }
 
 }

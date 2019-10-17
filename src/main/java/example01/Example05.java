@@ -6,18 +6,21 @@ import io.reactivex.schedulers.Schedulers;
 public class Example05 {
 
 	public Observable<Integer> merge(int count) {
+
+		return Observable.merge(slowRequest(count), normalRequest(count));
 		// TODO
 		// Create a code that from the range from 1 to the count
 		// returns the merge from the slow request and the normal request
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	public Observable<Integer> concat(int count) {
+		return Observable.concat(slowRequest(count), normalRequest(count));
 		// TODO
 		// Create a code that from the range from 1 to the count
 		// returns the concat from the slow request and the normal request
 		// Using first Slow request
-		throw new UnsupportedOperationException();
+		//throw new UnsupportedOperationException();
 	}
 
 	private Observable<Integer> slowRequest(int count) {

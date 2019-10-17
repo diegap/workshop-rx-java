@@ -8,13 +8,14 @@ public class Example03 {
         // TODO
         // Create a code that from the range from 1 to the count
         // returns only odd numbers
-        throw new UnsupportedOperationException();
+        return Observable.range(1, count).filter(num -> num % 2 != 0);
     }
 
     public Observable<Integer> duplicate(int count) {
         // TODO
         // Create a code that from the range from 1 to the count
         // return each number duplicated (x2)
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+        return Observable.range(1, count).map(num -> num * 2);
     }
 }

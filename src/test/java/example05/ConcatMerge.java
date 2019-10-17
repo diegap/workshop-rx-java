@@ -24,12 +24,12 @@ public class ConcatMerge {
 	}
 
 	@Test
-	public void concat() {
+	public void concat() throws InterruptedException {
 		TestObserver<List<Integer>> testObserver = new TestObserver<>();
 		Example05 example04 = new Example05();
 
 		example04.concat(count).toList().subscribe(testObserver);
 
-		testObserver.assertValues(Lists.newArrayList(10, 11, 12, 13, 14, 1, 2, 3, 4, 5));
+		testObserver.await().assertValues(Lists.newArrayList(10, 11, 12, 13, 14, 1, 2, 3, 4, 5));
 	}
 }
