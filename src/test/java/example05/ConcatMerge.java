@@ -14,15 +14,13 @@ public class ConcatMerge {
 	private int count = 5;
 
 	@Test
-	public void merge() {
+	public void merge() throws InterruptedException {
 		TestObserver<List<Integer>> testObserver = new TestObserver<>();
 		Example05 example04 = new Example05();
 
 		example04.merge(count).toList().subscribe(testObserver);
 
-		testObserver.assertComplete().assertValue( list ->
-				list.containsAll(Lists.newArrayList(1,2,3,4,5,10,11,12,13,14))
-		);
+		testObserver.await().assertComplete().assertValue(Lists.newArrayList(1, 2, 3, 4, 5, 10, 11, 12, 13, 14));
 	}
 
 	@Test
@@ -32,6 +30,6 @@ public class ConcatMerge {
 
 		example04.concat(count).toList().subscribe(testObserver);
 
-		testObserver.assertValues(Lists.newArrayList(10,11,12,13,14,1,2,3,4,5));
+		testObserver.assertValues(Lists.newArrayList(10, 11, 12, 13, 14, 1, 2, 3, 4, 5));
 	}
 }
